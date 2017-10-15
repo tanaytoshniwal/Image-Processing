@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 cap=cv2.VideoCapture(0)
-while True:
+while cap.isOpened():
 	ret,frame=cap.read()
 	red = cv2.inRange(cv2.cvtColor(frame, cv2.COLOR_BGR2HSV), np.array([136,87,111]), np.array([180,255,255]))
 	(ret,contours,hierarchy)=cv2.findContours(red,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
